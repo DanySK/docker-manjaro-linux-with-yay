@@ -19,6 +19,7 @@ pigz \
 pbzip2 \
 ssh \
 sudo \
+which \
 --noconfirm && pacman -Sc --noconfirm
 ## CREATE A NORMAL USER FOR YAY
 RUN useradd builduser -m
