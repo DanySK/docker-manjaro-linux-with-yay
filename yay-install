@@ -1,0 +1,3 @@
+#!/bin/bash
+sudo -u builduser /usr/bin/yay-pure -Syu --noconfirm --needed "$@"
+sudo -u builduser /usr/bin/yay-pure -Sc --noconfirm

@@ -17,7 +17,7 @@ make \
 nano \
 pigz \
 pbzip2 \
-ssh \
+openssh \
 sudo \
 which \
 --noconfirm && pacman -Sc --noconfirm
@@ -36,4 +36,8 @@ RUN chmod +x /usr/sbin/install_yay.sh
 RUN sudo -u builduser install_yay.sh
 RUN rm /usr/sbin/install_yay.sh
 RUN sudo -u builduser yay -Sc --noconfirm
+# Prepare easier commands
+RUN mv /usr/bin/yay /usr/bin/yay-pure
+COPY yay /usr/bin/yay
+COPY yay-install /usr/bin/yay-install
 CMD bash
