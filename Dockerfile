@@ -17,6 +17,7 @@ make \
 nano \
 pigz \
 pbzip2 \
+ssh \
 sudo \
 --noconfirm && pacman -Sc --noconfirm
 ## CREATE A NORMAL USER FOR YAY
