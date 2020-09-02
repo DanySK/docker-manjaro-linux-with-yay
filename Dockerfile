@@ -5,7 +5,20 @@ RUN pacman-key --init
 RUN pacman-key --populate archlinux manjaro
 RUN pacman -Sc --noconfirm
 RUN pacman -Syu --noconfirm && pacman -Sc --noconfirm
-RUN pacman -S --needed git fakeroot sudo nano binutils make gcc gettext gawk pigz pbzip2 --noconfirm && pacman -Sc --noconfirm
+RUN pacman -S --needed \
+# PACKAGES
+binutils \
+fakeroot \
+gawk \
+gettext \
+gcc \
+git \
+make \
+nano \
+pigz \
+pbzip2 \
+sudo \
+--noconfirm && pacman -Sc --noconfirm
 ## CREATE A NORMAL USER FOR YAY
 RUN useradd builduser -m
 # Delete the buildusers password
