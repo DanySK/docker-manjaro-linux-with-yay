@@ -19,11 +19,6 @@ COPY makepkg.conf /etc/makepkg.conf
 COPY install_yay.sh /usr/bin/install_yay.sh
 RUN chmod +x /usr/sbin/install_yay.sh
 RUN sudo -u builduser install_yay.sh
-# Normal user operations, system installation
-COPY packages /etc/image/packages
-RUN cat /etc/image/packages
-RUN for package in $(cat /etc/image/packages); do sudo -u builduser yay -Syu --needed --noconfirm $package && yay -Sc --noconfirm; done
-# System configuration
-RUN archlinux-java set java-11-openjdk
-RUN gem install bundler jekyll travis
+RUN rm /usr/sbin/install_yay.sh
+RUN sudo -u builduser yay -Sc --noconfirm
 CMD bash

@@ -1,20 +1,12 @@
-# Manjaro Linux virtual machine for teaching
+# Manjaro Linux docker with yay installed
 
-I'm tired of stuff not working with Windows and dual boots are apparently not a thing in my university,
-VMs drain too many resources,
-some students have Linux/Mac PCS...
-So I adopted docker
+Running yay as root is forbidden,
+so this docker has a second user called `builduser` that can run `yay`.
+If you are developing a docker based on this image, you can add commands like:
 
-## Run on linux
-
-```bash
-docker run --rm --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" -it
+```dockerfile
+RUN sudo -u builduser yay -Syu --noconfirm
 ```
 
-## Run on Windows 10
-
-TBD
-
-## Run on Mac OS X
-
-TBD
+Just prefix `sudo -u builduser` to any `yay` invocation,
+and you should be good to go.
