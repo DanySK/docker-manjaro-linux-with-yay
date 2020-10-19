@@ -2,9 +2,6 @@ services:
   - docker
 
 dist: focal
-group: edge
-arch: arm64-graviton2
-virt: lxd
 
 env:
   global:
