@@ -8,6 +8,8 @@ on:
 jobs:
   Build-And-Deploy-Container:
     runs-on: ubuntu-latest
+    # Run if it's not a PR, or if the PR comes from an external repository
+    if: ${{ github.event_name != 'pull_request' || github.event.repository.full_name != github.repository }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
