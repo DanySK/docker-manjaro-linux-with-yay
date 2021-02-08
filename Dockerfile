@@ -1,5 +1,5 @@
 FROM manjarolinux/base
-RUN pacman -Sy --noconfirm gawk gnupg
+RUN pacman -S --noconfirm gawk gnupg
 RUN pacman -Sy --noconfirm archlinux-keyring manjaro-keyring
 RUN rm -fr /etc/pacman.d/gnupg
 RUN pacman-key --init
