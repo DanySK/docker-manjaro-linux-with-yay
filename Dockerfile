@@ -1,4 +1,4 @@
-FROM manjarolinux/base
+FROM manjarolinux/build-stable
 RUN mkdir -p /var/lib/pacman/
 RUN pacman -Sy --debug
 RUN pacman -Sy --noconfirm --debug gawk gnupg libgpg-error gnupg gpgme
