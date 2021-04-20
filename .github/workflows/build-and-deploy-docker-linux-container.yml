@@ -39,4 +39,4 @@ jobs:
         run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin docker.io
       - name: Deploy Image
         if: ${{ github.event_name != 'pull_request' }}
-        run: docker push $IMAGE_NAME:$TAG
+        run: docker push --all-tags $IMAGE_NAME:$TAG
