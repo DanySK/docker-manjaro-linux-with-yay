@@ -1,6 +1,7 @@
 #!/bin/sh
-cd
-git clone https://aur.archlinux.org/yay.git --depth=1
-cd yay
+cd /tmp
+git clone 'https://aur.archlinux.org/yay.git' --depth=1
+cd /tmp/yay
 makepkg -si --noconfirm
-cd ..
+cd ~
+rm -rf /tmp/yay/
