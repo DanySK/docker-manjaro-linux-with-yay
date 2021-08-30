@@ -13,6 +13,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          submodules: recursive
       - name: Fetch tags
         shell: bash
         run: git fetch --tags -f
@@ -32,8 +35,8 @@ jobs:
           echo TAG="$TAG" >> $GITHUB_ENV
       - name: Build Image
         run: |
-          echo docker build -t "$IMAGE_NAME:latest" -t "$IMAGE_NAME:$TAG" -t "$(git rev-list --all --count).$(date +%Y%m%d.%H%M)" .
-          docker build -t "$IMAGE_NAME:latest" -t "$IMAGE_NAME:$TAG" -t "$(git rev-list --all --count).$(date +%Y%m%d.%H%M)" .
+          echo docker build -t "$IMAGE_NAME:latest" -t "$IMAGE_NAME:$TAG" -t "$IMAGE_NAME:$(git rev-list --all --count).$(date +%Y%m%d.%H%M)" .
+          docker build -t "$IMAGE_NAME:latest" -t "$IMAGE_NAME:$TAG" -t "$IMAGE_NAME:$(git rev-list --all --count).$(date +%Y%m%d.%H%M)" .
       - name: Login to Docker Hub
         if: ${{ github.event_name != 'pull_request' }}
         env:
