@@ -1,4 +1,4 @@
-FROM manjarolinux/base:20230315
+FROM manjarolinux/base:20230319
 RUN pacman -Sy --noconfirm --debug gawk gnupg libgpg-error gnupg gpgme
 RUN pacman -Sy --noconfirm --debug archlinux-keyring manjaro-keyring
 RUN rm -fr /etc/pacman.d/gnupg
