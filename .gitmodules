@@ -1,0 +1,3 @@
+[submodule "yay-repo"]
+	path = yay-repo
+	url = https://aur.archlinux.org/yay.git

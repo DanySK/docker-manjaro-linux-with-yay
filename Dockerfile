@@ -32,6 +32,9 @@ RUN printf 'root ALL=(ALL) ALL\n' | tee -a /etc/sudoers
 RUN printf 'builduser ALL=(ALL) ALL\n' | tee -a /etc/sudoers
 # Use parallel compression
 COPY makepkg.conf /etc/makepkg.conf
+RUN mkdir -p /tmp/yay/
+RUN chmod 777 /tmp/yay/
+COPY yay-repo/ /tmp/yay/
 ## INSTALL YAY
 COPY install_yay.sh /usr/bin/install_yay.sh
 RUN chmod +x /usr/sbin/install_yay.sh
