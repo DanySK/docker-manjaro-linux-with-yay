@@ -39,6 +39,7 @@ COPY yay-repo/ /tmp/yay/
 COPY install_yay.sh /usr/bin/install_yay.sh
 RUN chmod +x /usr/sbin/install_yay.sh
 RUN sudo -u builduser install_yay.sh
+RUN rm -rf /tmp/yay/
 RUN rm /usr/sbin/install_yay.sh
 RUN sudo -u builduser yay -Sc --noconfirm
 # Prepare easier commands
