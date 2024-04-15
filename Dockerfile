@@ -8,6 +8,7 @@ RUN pacman -Sc --noconfirm
 RUN pacman -Syu --noconfirm && pacman -Sc --noconfirm
 RUN pacman -S --needed \
 # PACKAGES
+base-devel \
 binutils \
 fakeroot \
 gawk \
