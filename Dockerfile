@@ -1,9 +1,8 @@
 FROM manjarolinux/base:20250504
-RUN pacman -Sy --noconfirm --debug gawk gnupg libgpg-error gnupg gpgme
-RUN pacman -Sy --noconfirm --debug archlinux-keyring manjaro-keyring
 RUN rm -fr /etc/pacman.d/gnupg
 RUN pacman-key --init
 RUN pacman-key --populate archlinux manjaro
+RUN pacman -Sy --noconfirm --debug archlinux-keyring manjaro-keyring
 RUN pacman -Sc --noconfirm
 RUN pacman -Syu --noconfirm && pacman -Sc --noconfirm
 RUN pacman -S --needed \
